@@ -120,23 +120,3 @@ resource "azurerm_mssql_server_vulnerability_assessment" "this" {
     emails                    = []
   }
 }
-
-module "database" {
-  source = "./modules/database"
-
-  name                 = var.database_name
-  server_id            = azurerm_mssql_server.this.id
-  sku_name             = var.sku_name
-  max_size_gb          = var.max_size_gb
-  storage_account_type = var.database_storage_account_type
-
-  short_term_retention_policy_retention_days           = var.short_term_retention_policy_retention_days
-  short_term_retention_policy_backup_interval_in_hours = var.short_term_retention_policy_backup_interval_in_hours
-
-  long_term_retention_policy_weekly_retention  = var.long_term_retention_policy_weekly_retention
-  long_term_retention_policy_monthly_retention = var.long_term_retention_policy_monthly_retention
-  long_term_retention_policy_yearly_retention  = var.long_term_retention_policy_yearly_retention
-  long_term_retention_policy_week_of_year      = var.long_term_retention_policy_week_of_year
-
-  tags = var.tags
-}
