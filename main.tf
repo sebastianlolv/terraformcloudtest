@@ -28,5 +28,5 @@ resource "azurerm_mssql_server" "this" {
       login_username              = azuread_administrator.value["login_username"]
       object_id                   = azuread_administrator.value["object_id"]
       azuread_authentication_only = azuread_administrator.value["azuread_authentication_only"]
-    }
   }
+}
