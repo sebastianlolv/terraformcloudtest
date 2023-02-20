@@ -1,5 +1,5 @@
 resource "random_password" "this" {
-  length      = 128
+  length      = 118
   lower       = true
   upper       = true
   numeric     = true
